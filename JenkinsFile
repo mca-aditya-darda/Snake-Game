@@ -11,9 +11,9 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/mca-aditya-darda/Snake-Game.git'
-            }
+            git branch: 'main', url: 'https://github.com/mca-aditya-darda/Snake-Game.git'
         }
+    }
         stage('Build Maven Project') {
             steps {
                 bat 'mvn clean package'
