@@ -26,8 +26,7 @@ pipeline {
         }
         stage('Remove Old Container') {
             steps {
-                bat 'docker stop %CONTAINER_NAME%'
-                bat 'docker rm %CONTAINER_NAME%'
+                bat 'docker rm -f %CONTAINER_NAME% || exit /b 0'
             }
         }
         stage('Run Container') {
